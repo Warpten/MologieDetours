@@ -158,6 +158,20 @@ namespace MologieDetours
 		explicit DetourRelocationException(const std::string& _Message) : _Mybase(_Message.c_str()) { }
 		explicit DetourRelocationException(const char* _Message) : _Mybase(_Message) { }
 	};
+	
+	/**
+	 * @class       DetourBase
+	 * 
+	 * @brief	And interface class for Detour.
+	 * 
+	 * @author 	Warpten
+	 * @date	26.02.2014
+	 */
+	class DetourBase
+	{
+		public:
+			virtual ~DetourBase();
+	};
 
 	/**
 	 * @class	Detour
@@ -167,7 +181,7 @@ namespace MologieDetours
 	 * @author	Oliver Kuckertz
 	 * @date	14.05.2011
 	 */
-	template <typename function_type> class Detour
+	template <typename function_type> class Detour : public DetourBase
 	{
 	public:
 		/**
